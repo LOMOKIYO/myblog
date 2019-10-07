@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>彼女の寝言に宇宙を感じる</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="container">
+    <h1><%= link_to image_tag('pic4.jpeg', class: 'logo'), root_path %></h1> 
+     <%# ↑index 上部のホームへのリンク部分 %>
+    <%= yield %>
+    </div>
+  </body>
+</html>

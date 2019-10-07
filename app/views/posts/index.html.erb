@@ -1,0 +1,10 @@
+<h2>
+  <%= link_to 'Add New', new_post_path, class: 'header-menu'%>
+  彼女の寝言に宇宙を感じる</h2>
+<ul>
+<% @posts.each do |post| %>
+<li>
+<%= link_to post.title, post_path(post) %>
+</li>
+<% end %>
+</ul>
