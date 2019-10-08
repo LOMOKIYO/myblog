@@ -1,4 +1,10 @@
 class PostsController < ApplicationController
+
+  # before_action :move_to_index, except: :index
+  # before_action :move_to_index, except: :show
+  # before_action :move_to_index, only: %i[index show]
+  before_action :move_to_index, only: [:edit, :create, :destroy, :new]
+
   def index
     @posts = Post.all.order(created_at: 'desc')
   end
@@ -26,6 +32,7 @@ class PostsController < ApplicationController
   end
 
   def create
+
              # render plain: params[:post].inspect
 
             # #セーブする記述
@@ -42,12 +49,17 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to posts_path
+  end
 
+  def move_to_index
+    redirect_to action: :index unless user_signed_in?
   end
   
   private
   def post_params
     params.require(:post).permit(:title, :body)
+
   end
+
   
 end
