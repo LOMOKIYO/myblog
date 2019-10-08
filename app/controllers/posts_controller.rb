@@ -39,7 +39,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post.update(post_params)
+    @post = Post.find(params[:id])
     @post.destroy
     redirect_to posts_path
 
